@@ -1,11 +1,10 @@
 import React from 'react';
-import Cart from './cart';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
 export default function HomePage() {
 
-  const store = JSON.parse(cookies().get("cartStore")?.value);
+  const store = JSON.parse(cookies().get("cartStore")?.value ?? '[]');
   console.log(store[0].data);
   console.log(store[0].price);
 
