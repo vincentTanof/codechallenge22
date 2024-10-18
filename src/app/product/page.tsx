@@ -5,8 +5,7 @@ import { redirect } from 'next/navigation';
 export default function HomePage() {
 
   const store = JSON.parse(cookies().get("cartStore")?.value ?? '[]');
-  console.log(store[0].data);
-  console.log(store[0].price);
+
 
   // NavBar
   return ( 
@@ -109,8 +108,8 @@ export default function HomePage() {
     <section className="flex flex-col items-center my-10" id="cart">
     <h2 className="text-2xl mb-5">Your Cart</h2>
     <ul id="cart-items" className="w-full max-w-sm list-none p-0"></ul>
-    <h1 className="z-10 text-3xl" id="cart-total-price">{store[0].data}</h1>
-    <div className="text-xl font-bold mt-5">Total: $<span id="cart-total-price">{store[0].price}</span></div>
+    <h1 className="z-10 text-3xl" id="cart-total-price">{store[0]?.data}</h1>
+    <div className="text-xl font-bold mt-5">Total: $<span id="cart-total-price">{store[0]?.price}</span></div>
     <form action={async() => {
     "use server"
     // Clear Cart
